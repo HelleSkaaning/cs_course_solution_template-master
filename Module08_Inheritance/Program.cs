@@ -31,7 +31,18 @@
             //System.Object d = new object();
             //d.ToString();
 
+            Person[] personer = new Person[4];
+            personer[0] = o1;
+            personer[1] = o2;
+            personer[2] = o3;
+            personer[3] = o4;
 
+            foreach (var item in personer)
+            {
+                item.Print();
+            }
+            
+            
             if (System.Diagnostics.Debugger.IsAttached)
             {
                 System.Console.Write("Press any key to continue . . . ");
@@ -50,9 +61,9 @@
 
             public string CPR { get; set; }
 
-            public bool ValiderCpr() { return true}
+            public bool ValiderCpr() { return true; }
 
-            public void Print()
+            public virtual void Print()
             {
                 System.Console.WriteLine("Jeg er en person og hedder "+this.Navn);
             }
@@ -67,6 +78,13 @@
 
             }
 
+            public override void Print()
+            {
+                System.Console.WriteLine("Jeg er en student og hedder " + this.Navn);
+            }
+
+
+
         }
 
         class Intruktør : Person
@@ -77,6 +95,12 @@
 
             }
 
+            public override void Print()
+            {
+                System.Console.WriteLine("Jeg er en Intruktør og hedder " + this.Navn + "Med nøgleid: "+Nøgle);
+            }
+
+
         }
 
         sealed class HjælpeInstruktør : Intruktør
@@ -85,6 +109,11 @@
             public void FindKlasser()
             {
 
+            }
+
+            public override void Print()
+            {
+                System.Console.WriteLine("Jeg er en underinstruktør og hedder " + this.Navn+ "med midlertidig nøgle "+MidlertidigNøgle);
             }
 
         }
