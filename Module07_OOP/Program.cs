@@ -22,12 +22,26 @@
             Person p = new Person() { Navn = "x", Land = "y", Alder = 45 };
 
 
+            Vare v = new Vare();
+
+            System.Console.WriteLine(Vare.momsPct);
+            Vare v2 = Vare.DanSpecialVare();
+
+
 
             if (System.Diagnostics.Debugger.IsAttached)
             {
                 System.Console.Write("Press any key to continue . . . ");
                 System.Console.ReadKey();
             }
+        }
+
+        // Brug af Static
+        public static void Test()
+        {
+
+
+
         }
     }
 
