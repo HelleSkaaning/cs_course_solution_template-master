@@ -1,4 +1,6 @@
-﻿namespace Module11_Collections
+﻿using System;
+
+namespace Module11_Collections
 {
     class Program
     {
@@ -33,6 +35,34 @@
                 System.Console.WriteLine(item.ToString()); // så må man ikke længere bruge medlemmerne for tandbørst for nu er det icrud
             }
 
+            Hund[] hunde = new Hund[3];
+            hunde[0] = new Hund() { Navn = "A", Alder = 4 };
+            hunde[1] = new Hund() { Navn = "B", Alder = 2 };
+            hunde[2] = new Hund() { Navn = "C", Alder = 8 };
+
+            foreach (var item in hunde)
+            {
+                System.Console.WriteLine(item.Navn);
+            }
+
+            Array.Sort(hunde);
+            Console.WriteLine();
+
+            foreach (var item in hunde)
+            {
+                System.Console.WriteLine(item.Navn);
+            }
+
+            // nedlæg hunde;
+            hunde[2].Dispose();
+
+
+            using (Hund h = new Hund())
+            {
+                Console.WriteLine(h.Navn);
+
+            }
+
 
             if (System.Diagnostics.Debugger.IsAttached)
             {
@@ -41,6 +71,44 @@
             }
         }
 
+    }
+
+    public class Hund: IComparable, IDisposable
+
+    {
+        public string Navn { get; set; }
+        public int Alder { get; set; }
+
+        public Hund()
+        {
+            Console.WriteLine("Jeg bliver født");
+        }
+
+        ~Hund() // destructor bruges ikke så meget
+        {
+            Console.WriteLine("Jeg dør");
+        }
+
+        public void Dispose()
+        {
+            Console.WriteLine("Jeg rydder op inden jeg dør");
+        }
+
+        public int CompareTo(object obj)
+        {
+            Hund h1 = this;
+            Hund h2 = obj as Hund;
+
+            if (h1.Alder < h2.Alder)
+            {
+                return -1;
+            }
+            else if (h1.Alder >h2.Alder)
+            {
+                return 1;
+            }
+            return 0;
+        }
     }
 
     interface ICrud
