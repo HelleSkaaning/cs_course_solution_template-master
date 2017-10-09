@@ -1,4 +1,4 @@
-﻿using System;
+﻿using System.Collections.Generic;
 
 namespace Module11_Collections
 {
@@ -6,62 +6,73 @@ namespace Module11_Collections
     {
         static void Main(string[] args)
         {
-            Tandbørste t = new Tandbørste();
-            t.Stop();
-            t.id = 2;
+
+            System.Collections.ArrayList lst1 = new System.Collections.ArrayList();
+            lst1.Add(1);
+            lst1.Add(2);
+
+            lst1.Remove(1);
+
+            System.Collections.ArrayList lst2 = new System.Collections.ArrayList();
+            lst2.Add(new Hund() { Navn = "a" });
+            lst2.Add(new Hund() { Navn = "b" });
+
+            lst2.Remove(1);
+
+            System.Collections.Stack lst3 = new System.Collections.Stack();
+            lst3.Push(1);
+            lst3.Push(2);
+            lst3.Push(133);
+
+            System.Collections.Queue lst4 = new System.Collections.Queue();
+            lst4.Enqueue(new Hund() { Navn = "A"});
+            lst4.Enqueue(new Hund() { Navn = "B" });
+            lst4.Enqueue(new Hund() { Navn = "C" });
+            Hund h = (Hund)lst4.Dequeue();
+
+            System.Collections.Hashtable lst5 = new System.Collections.Hashtable();
+            lst5.Add("a","a");
+            lst5.Add("b", "a");
+            lst5.Add("c", "a");
+            string r = lst5["b"].ToString();
 
 
-            Turbine u = new Turbine();
-            u.Stop();
-            u.FyldBenzinPå();
+            Kennel kennel = new Kennel();
+            kennel.TilføjHund(h);
 
-            System.Console.WriteLine();
+            //////////////////
+            System.Collections.Generic.List<Hund> lst6 = new System.Collections.Generic.List<Hund>();
+            lst6.Add(new Hund() { Navn = "a"});
+            lst6.Add(new Hund() { Navn = "b" });
 
-            IMaskine[] maskiner = new IMaskine[2];
-            maskiner[0] = new Tandbørste();
-            maskiner[1] = new Turbine();
+            Hund hh = lst6[0];
 
-            foreach (var item in maskiner)
+            Queue<int> lst7 = new Queue<int>();
+            lst7.Enqueue(5);
+            int ii = lst7.Dequeue();
+
+            Dictionary<int, Hund> lst8 = new Dictionary<int, Hund>();
+            lst8.Add(4, new Hund() { Navn = "b"});
+            lst8.Add(22, new Hund() { Navn = "g"});
+            Hund hhh = lst8[4];
+
+            List<string> lst9 = new List<string>();
+            lst9.Add("A1");
+            lst9.Add("B1");
+            lst9.Add("E1");
+            lst9.Add("C1");
+
+            foreach (var item in lst9)
             {
-                System.Console.WriteLine(item.Fejlkode());
+                System.Console.WriteLine(item);
             }
 
-            ICrud[] m = new ICrud[2];
-            m[0] = new Tandbørste();
-            m[1] = new Turbine();
-
-            foreach (var item in m)
+            for (int i = 0; i < lst9.Count; i++)
             {
-                System.Console.WriteLine(item.ToString()); // så må man ikke længere bruge medlemmerne for tandbørst for nu er det icrud
+                System.Console.WriteLine(lst9[i].ToString());
             }
 
-            Hund[] hunde = new Hund[3];
-            hunde[0] = new Hund() { Navn = "A", Alder = 4 };
-            hunde[1] = new Hund() { Navn = "B", Alder = 2 };
-            hunde[2] = new Hund() { Navn = "C", Alder = 8 };
 
-            foreach (var item in hunde)
-            {
-                System.Console.WriteLine(item.Navn);
-            }
-
-            Array.Sort(hunde);
-            Console.WriteLine();
-
-            foreach (var item in hunde)
-            {
-                System.Console.WriteLine(item.Navn);
-            }
-
-            // nedlæg hunde;
-            hunde[2].Dispose();
-
-
-            using (Hund h = new Hund())
-            {
-                Console.WriteLine(h.Navn);
-
-            }
 
 
             if (System.Diagnostics.Debugger.IsAttached)
@@ -71,127 +82,24 @@ namespace Module11_Collections
             }
         }
 
-    }
-
-    public class Hund: IComparable, IDisposable
-
-    {
-        public string Navn { get; set; }
-        public int Alder { get; set; }
-
-        public Hund()
+        // Collection klasse
+        class Kennel
         {
-            Console.WriteLine("Jeg bliver født");
-        }
+            private System.Collections.ArrayList lst = new System.Collections.ArrayList();
 
-        ~Hund() // destructor bruges ikke så meget
-        {
-            Console.WriteLine("Jeg dør");
-        }
-
-        public void Dispose()
-        {
-            Console.WriteLine("Jeg rydder op inden jeg dør");
-        }
-
-        public int CompareTo(object obj)
-        {
-            Hund h1 = this;
-            Hund h2 = obj as Hund;
-
-            if (h1.Alder < h2.Alder)
+            public void TilføjHund (Hund h) // Nu er den lavet type stærk
             {
-                return -1;
+                lst.Add(h);
             }
-            else if (h1.Alder >h2.Alder)
-            {
-                return 1;
-            }
-            return 0;
+
+
+        }
+
+        class Hund
+        {
+            public string Navn { get; set; }
         }
     }
-
-    interface ICrud
-    {
-        IMaskine Opret();
-        void Gem(IMaskine m);
-    }
-
-
-    interface IMaskine
-    {
-        void Stop();
-        int Fejlkode();
-        int StopMaskine(int StatusKode);
-
-    }
-
-    class Tandbørste : IMaskine, ICrud
-    {
-        public int id { get; set; }
-
-        public int Fejlkode()
-        {
-            //throw new System.NotImplementedException();
-            return 2;
-        }
-
-        public void Gem(IMaskine m)
-        {
-            //Gemmer noget
-            //throw new System.NotImplementedException();
-        }
-
-        public IMaskine Opret()
-        {
-            return new Tandbørste();
-        }
-
-        public void Stop()
-        {
-            //throw new System.NotImplementedException();
-            System.Console.WriteLine("Jeg stopper");
-        }
-
-        public int StopMaskine(int StatusKode)
-        {
-            //throw new System.NotImplementedException();
-            return StatusKode + 1;
-        }
-    }
-
-    class Turbine : IMaskine, ICrud
-    {
-        public void FyldBenzinPå()
-        {
-        }
-            
-        public int Fejlkode()
-        {
-            return 99;
-        }
-
-        public void Stop()
-        {
-            System.Console.WriteLine("Stort maskinstop");
-        }
-
-        public int StopMaskine(int StatusKode)
-        {
-            return StatusKode + 100;
-        }
-
-        public IMaskine Opret()
-        {
-            // throw new System.NotImplementedException();
-            return new Turbine();
-        }
-
-        public void Gem(IMaskine m)
-        {
-            //throw new System.NotImplementedException();
-            // Do something
-        }
-    }
-
 }
+
+
