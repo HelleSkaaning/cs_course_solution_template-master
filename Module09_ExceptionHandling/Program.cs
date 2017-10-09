@@ -29,22 +29,22 @@
             //    System.Console.WriteLine(ex.Message);
             //}
 
-//            try
-//            {
-//                // Log
-//                // redirect
-//                F1();
+            try
+            {
+                // Log
+                // redirect
+                F1();
 
-//            }
-//            catch (System.Exception ex)
-//            {
+            }
+            catch (System.Exception ex)
+            {
 
-//                System.Console.WriteLine(ex.Message);
-//                if (ex.InnerException != null)
-//                {
-//                    System.Console.WriteLine(ex.InnerException.Message);
-//                }
-//            }
+                System.Console.WriteLine(ex.Message);
+                if (ex.InnerException != null)
+                {
+                    System.Console.WriteLine(ex.InnerException.Message);
+                }
+            }
 
             if (System.Diagnostics.Debugger.IsAttached)
             {
