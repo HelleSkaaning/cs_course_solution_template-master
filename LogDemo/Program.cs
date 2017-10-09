@@ -23,7 +23,7 @@ namespace LogDemo
             logger.Debug("retur fra test 2");
 
             logger.Trace("Exit Main");
-
+            
             Console.ReadKey();
         }
 
