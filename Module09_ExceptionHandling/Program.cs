@@ -2,32 +2,10 @@
 {
     class Program
     {
+
         static void Main(string[] args)
         {
 
-
-
-
-
-
-
-            //Dyr d = new Dyr();
-            //try
-            //{
-            //    Dyr d = null;
-            //    System.Console.WriteLine(d.ToString());
-
-            //}
-            //catch (System.NullReferenceException ex)
-            //{
-            //    System.Console.WriteLine(ex.Message);
-            //}
-            //catch (System.Exception ex)
-            //{
-            //    // log
-            //    //redeirect
-            //    System.Console.WriteLine(ex.Message);
-            //}
 
             try
             {
@@ -51,6 +29,29 @@
                 System.Console.Write("Press any key to continue . . . ");
                 System.Console.ReadKey();
             }
+
+
+
+
+            //Dyr d = new Dyr();
+            //try
+            //{
+            //    Dyr d = null;
+            //    System.Console.WriteLine(d.ToString());
+
+            //}
+            //catch (System.NullReferenceException ex)
+            //{
+            //    System.Console.WriteLine(ex.Message);
+            //}
+            //catch (System.Exception ex)
+            //{
+            //    // log
+            //    //redeirect
+            //    System.Console.WriteLine(ex.Message);
+            //}
+
+
         }
 
         static void F1()
