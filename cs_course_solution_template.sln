@@ -63,6 +63,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Dyrearray", "Dyrearray\Dyre
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "LogDemo", "LogDemo\LogDemo.csproj", "{AC93C428-E214-4CBC-A2DC-1D9DB32D61E2}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Interface", "Interface\Interface.csproj", "{2C0B51B9-59E2-4B3B-ABC3-40C73D0F1EF5}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -181,6 +183,10 @@ Global
 		{AC93C428-E214-4CBC-A2DC-1D9DB32D61E2}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{AC93C428-E214-4CBC-A2DC-1D9DB32D61E2}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{AC93C428-E214-4CBC-A2DC-1D9DB32D61E2}.Release|Any CPU.Build.0 = Release|Any CPU
+		{2C0B51B9-59E2-4B3B-ABC3-40C73D0F1EF5}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{2C0B51B9-59E2-4B3B-ABC3-40C73D0F1EF5}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{2C0B51B9-59E2-4B3B-ABC3-40C73D0F1EF5}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{2C0B51B9-59E2-4B3B-ABC3-40C73D0F1EF5}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -214,6 +220,7 @@ Global
 		{7C8D96E1-BAF3-45A4-9774-2BE7214693D3} = {5E1B2542-C3EE-4515-8C83-C8E805B50E0F}
 		{F2069EAA-4EA2-45C7-94DA-67B49510EC28} = {5E1B2542-C3EE-4515-8C83-C8E805B50E0F}
 		{AC93C428-E214-4CBC-A2DC-1D9DB32D61E2} = {5E1B2542-C3EE-4515-8C83-C8E805B50E0F}
+		{2C0B51B9-59E2-4B3B-ABC3-40C73D0F1EF5} = {5E1B2542-C3EE-4515-8C83-C8E805B50E0F}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {950A57AC-B070-437C-AAB0-0D246B6CBB4B}
