@@ -1,11 +1,38 @@
-﻿using System.Collections.Generic;
+﻿using System;
+using System.Collections.Generic;
 
 namespace Module11_Collections
 {
     class Program
+
     {
+
+        //private static double Momspct = 0.25;
+
         static void Main(string[] args)
         {
+            // så kan man spørge på argumenter til programmet
+            if (args.Length > 0)
+            {
+                foreach (var item in args)
+                {
+                    System.Console.WriteLine(item);
+                };
+            };
+          
+            // Så kan man hente i konfigurationsfilen
+            //modul+add+reference: system.coonfiguration
+            string m = System.Configuration.ConfigurationManager.AppSettings["moms"];
+            double moms = 0;
+            if (m != null)
+            {
+                moms = Convert.ToDouble(m);
+            }
+
+            //Eller bruge program properties + settings. 
+            //kan bruges som en mini dattabase.
+            string x = Module11_Collections.Properties.Settings.Default.Xpos;
+                
 
             System.Collections.ArrayList lst1 = new System.Collections.ArrayList();
             lst1.Add(1);
@@ -61,7 +88,7 @@ namespace Module11_Collections
             lst9.Add("B1");
             lst9.Add("E1");
             lst9.Add("C1");
-
+            
             foreach (var item in lst9)
             {
                 System.Console.WriteLine(item);
@@ -73,6 +100,13 @@ namespace Module11_Collections
             }
 
 
+            //Test<MinType> t1 = new Test<MinType>();
+
+
+            Kennel2 k2 = new Kennel2();
+            //k2.Add(new Hund);
+            //k2.Add(Hund );
+
 
 
             if (System.Diagnostics.Debugger.IsAttached)
@@ -81,6 +115,19 @@ namespace Module11_Collections
                 System.Console.ReadKey();
             }
         }
+
+        class Test<MinType>
+        {
+            private MinType x;
+            private MinType y;
+
+        }
+
+        class Kennel2 : List<Hund>
+        {
+
+        }
+
 
         // Collection klasse
         class Kennel
